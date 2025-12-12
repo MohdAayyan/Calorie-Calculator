@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie & Nutrition Calculator</title>
+    <meta name="description" content="Calculate your daily calorie needs and nutrition goals with our modern calculator.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍎</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="home">
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo" id="logo-link">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="20" cy="20" r="18" fill="url(#gradient)" stroke="#4299e1" stroke-width="2"/>
+                        <path d="M12 18L18 24L28 14" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#4299e1"/>
+                                <stop offset="100%" style="stop-color:#48bb78"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <h1>Calorie Calculator</h1>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Background Decorative Elements -->
+        <div class="bg-decoration">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+            <div class="floating-shape shape-4"></div>
+            <div class="floating-shape shape-5"></div>
+        </div>
+
+        <!-- Landing Page -->
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h2>Calorie & Nutrition Calculator</h2>
+                <p>Know your daily calorie needs & nutrition goals</p>
+                <button id="start-calc" class="cta-button">Calculate Now</button>
+            </div>
+            <div class="hero-image">
+                <svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="400" height="300" rx="20" fill="url(#heroGradient)"/>
+                    <circle cx="200" cy="120" r="40" fill="#48bb78" opacity="0.8"/>
+                    <circle cx="160" cy="160" r="25" fill="#4299e1" opacity="0.6"/>
+                    <circle cx="240" cy="180" r="30" fill="#ed8936" opacity="0.7"/>
+                    <circle cx="180" cy="220" r="20" fill="#f56565" opacity="0.5"/>
+                    <circle cx="280" cy="140" r="35" fill="#9f7aea" opacity="0.6"/>
+                    <text x="200" y="260" text-anchor="middle" fill="white" font-size="18" font-weight="bold">Healthy & Fit</text>
+                    <defs>
+                        <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#4299e1"/>
+                            <stop offset="100%" style="stop-color:#48bb78"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Calculator Form -->
+        <section id="calculator" class="calculator hidden">
+            <div class="container">
+                <h2>Calculate Your Needs</h2>
+                <form id="calc-form">
+                    <div class="form-group">
+                        <label for="age"><i class="fas fa-birthday-cake"></i> Age</label>
+                        <input type="number" id="age" min="10" max="120" value="25" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gender"><i class="fas fa-venus-mars"></i> Gender</label>
+                        <select id="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-weight"></i> Weight</label>
+                        <div class="unit-toggle">
+                            <input type="number" id="weight" min="1" step="0.1" value="70" required>
+                            <button type="button" id="weight-unit" class="unit-btn active">kg</button>
+                            <button type="button" id="weight-unit-lbs" class="unit-btn">lbs</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-ruler-vertical"></i> Height</label>
+                        <div class="unit-toggle">
+                            <input type="number" id="height" min="30" step="0.1" value="175" required>
+                            <button type="button" id="height-unit" class="unit-btn active">cm</button>
+                            <button type="button" id="height-unit-ft" class="unit-btn">ft/in</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="activity"><i class="fas fa-running"></i> Activity Level</label>
+                        <select id="activity" required>
+                            <option value="">Select Activity</option>
+                            <option value="1.2">Sedentary (little/no exercise)</option>
+                            <option value="1.375">Lightly active (light exercise 1-3 days/week)</option>
+                            <option value="1.55" selected>Moderately active (moderate exercise 3-5 days/week)</option>
+                            <option value="1.725">Very active (hard exercise 6-7 days/week)</option>
+                            <option value="1.9">Extra active (very hard exercise & physical job)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="goal"><i class="fas fa-bullseye"></i> Goal</label>
+                        <select id="goal" required>
+                            <option value="1">Maintain weight</option>
+                            <option value="0.8">Lose weight (0.5 kg/week)</option>
+                            <option value="0.6">Lose weight (1 kg/week)</option>
+                            <option value="1.2">Gain weight (0.5 kg/week)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="calc-button">Calculate</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Results -->
+        <section id="results" class="results hidden">
+            <div class="container">
+                <h2>Your Results</h2>
+                <div class="results-grid">
+                    <div class="result-card">
+                        <h3>BMR</h3>
+                        <p id="bmr-result">--</p>
+                        <small>Basal Metabolic Rate</small>
+                    </div>
+                    <div class="result-card">
+                        <h3>Daily Calories</h3>
+                        <p id="daily-cal-result">--</p>
+                        <small>Target Daily Intake</small>
+                    </div>
+                    <div class="result-card">
+                        <h3>Protein</h3>
+                        <p id="protein-result">--g</p>
+                        <small>Recommended</small>
+                    </div>
+                    <div class="result-card">
+                        <h3>Carbs</h3>
+                        <p id="carbs-result">--g</p>
+                        <small>Recommended</small>
+                    </div>
+                    <div class="result-card">
+                        <h3>Fat</h3>
+                        <p id="fat-result">--g</p>
+                        <small>Recommended</small>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="macro-chart"></canvas>
+                </div>
+
+                <div class="actions">
+                    <button id="download-btn" class="action-btn"><i class="fas fa-download"></i> Download Report</button>
+                    <button id="print-btn" class="action-btn"><i class="fas fa-print"></i> Print</button>
+                    <button id="reset-btn" class="action-btn secondary"><i class="fas fa-redo"></i> Recalculate</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 id="features-heading" class="clickable-heading">Why Choose Our Calculator?</h2>
+            <div class="features-grid">
+                <div class="feature-card" style="--i: 0">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Accurate Calculations</h3>
+                    <p>Based on scientifically proven Mifflin-St Jeor formula for precise BMR calculations.</p>
+                </div>
+                <div class="feature-card" style="--i: 1">
+                    <div class="feature-icon">📊</div>
+                    <h3>Detailed Breakdown</h3>
+                    <p>Get comprehensive macronutrient recommendations for optimal nutrition.</p>
+                </div>
+                <div class="feature-card" style="--i: 2">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Works perfectly on all devices with a responsive, modern design.</p>
+                </div>
+                <div class="feature-card" style="--i: 3">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Instant Results</h3>
+                    <p>Get your personalized calorie needs and macro split in seconds.</p>
+                </div>
+                <!-- Dark Mode feature removed as requested -->
+                <div class="feature-card" style="--i: 5">
+                    <div class="feature-icon">💾</div>
+                    <h3>Save & Share</h3>
+                    <p>Download your results and share with friends or trainers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform Your Health?</h2>
+            <p>Start your journey to better nutrition today with our advanced calorie calculator.</p>
+            <button onclick="document.getElementById('start-calc').click()" class="cta-button-large">Get Started Now</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Calorie Calculator. Made with ❤️ for health.</p>
+    </footer>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
